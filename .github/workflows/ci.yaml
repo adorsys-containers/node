@@ -23,19 +23,23 @@ jobs:
             ALIASES: '10'
             DIR: 'centos/10'
             DOCKER_IMAGE: 'adorsys/node'
+            SQUASH: 'true'
             TAG: '10-centos'
           -
             ALIASES: '12'
             DIR: 'centos/12'
             DOCKER_IMAGE: 'adorsys/node'
+            SQUASH: 'true'
             TAG: '12-centos'
           -
             DIR: 'ubi/10'
             DOCKER_IMAGE: 'adorsys/node'
+            SQUASH: 'true'
             TAG: '10-ubi'
           -
             DIR: 'ubi/12'
             DOCKER_IMAGE: 'adorsys/node'
+            SQUASH: 'true'
             TAG: '12-ubi'
     runs-on: ubuntu-latest
     steps:
