@@ -50,6 +50,6 @@ If you need to run addition logic on container start just copy your shell script
 | Name | Description | Size |
 | ---- | ----------- | ---- |
 | `10-centos` | CentOS based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-centos.svg) |
-| `12-centos` | CentOS based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-centos.svg) |
+| `12-centos` | CentOS based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-centos.svg) |
 | `10-ubi` | UBI based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-ubi.svg) |
-| `12-ubi` | UBI based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-ubi.svg) |
+| `12-ubi` | UBI based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-ubi.svg) |
