@@ -4,14 +4,18 @@
     - DOCKER_IMAGE: adorsys/node
       TAG: 10-centos
       DIR: centos/10
-      ALIASES: "10"
+      ALIASES: '10'
+      SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
       TAG: 12-centos
       DIR: centos/12
-      ALIASES: "12"
+      ALIASES: '12'
+      SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
       TAG: 10-ubi
       DIR: ubi/10
+      SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
       TAG: 12-ubi
       DIR: ubi/12
+      SQUASH: 'true'
