@@ -1,0 +1,17 @@
+.github/workflows/ci.yaml:
+  checkoutTestApplications: true
+  env:
+    - DOCKER_IMAGE: adorsys/node
+      TAG: 10-centos
+      DIR: node/centos/10
+      ALIASES: "10"
+    - DOCKER_IMAGE: adorsys/node
+      TAG: 12-centos
+      DIR: node/centos/12
+      ALIASES: "12"
+    - DOCKER_IMAGE: adorsys/node
+      TAG: 10-ubi
+      DIR: node/ubi/10
+    - DOCKER_IMAGE: adorsys/node
+      TAG: 12-ubi
+      DIR: node/ubi/12
