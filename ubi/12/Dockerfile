@@ -8,7 +8,7 @@ RUN mv nodejs*nodesource.x86_64.rpm /opt
 
 FROM registry.access.redhat.com/ubi8/ubi:latest AS TZDATA
 
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.1-407
+FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
 LABEL maintainer="adorsys GmbH & Co. KG" \
       vendor="adorsys GmbH & Co. KG" \
