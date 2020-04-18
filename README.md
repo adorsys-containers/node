@@ -12,7 +12,7 @@ Provides node. Should be used for runtime containers.
 ## Example Dockerfile
 
 ```dockerfile
-FROM adorsys/node:12
+FROM adorsys/node:12-ubi
 
 COPY . .
 
@@ -45,10 +45,10 @@ If you need to run addition logic on container start just copy your shell script
 
 ## Tags
 
-[![](https://images.microbadger.com/badges/image/adorsys/clair-local-scan.svg)](https://microbadger.com/images/adorsys/clair-local-scan)
-
 | Name | Description | Size |
 | ---- | ----------- | ---- |
+| `10` | Alias of `10-ubi` | ![](https://images.microbadger.com/badges/image/adorsys/node:10.svg) |
+| `12` | Alias of `12-ubi` | ![](https://images.microbadger.com/badges/image/adorsys/node:12.svg) |
 | `10-centos` | CentOS based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-centos.svg) |
 | `12-centos` | CentOS based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-centos.svg) |
 | `10-ubi` | UBI based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-ubi.svg) |
