@@ -2,20 +2,17 @@
   checkoutTestApplications: true
   env:
     - DOCKER_IMAGE: adorsys/node
-      TAG: 10-centos
-      DIR: centos/10
+      TAG: 10-ubi-8
+      DIR: ubi-8/10
+      ALIASES: '10 10-ubi'
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
-      TAG: 12-centos
-      DIR: centos/12
+      TAG: 12-ubi-8
+      DIR: ubi-8/12
+      ALIASES: '12 12-ubi'
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
-      TAG: 10-ubi
-      DIR: ubi/10
-      ALIASES: '10'
-      SQUASH: 'true'
-    - DOCKER_IMAGE: adorsys/node
-      TAG: 12-ubi
-      DIR: ubi/12
-      ALIASES: '12'
+      TAG: 14-ubi-8
+      DIR: ubi-8/12
+      ALIASES: '14 14-ubi'
       SQUASH: 'true'

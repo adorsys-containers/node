@@ -1,7 +1,7 @@
 FROM centos:8 AS RPM
 
 # https://github.com/nodesource/distributions/issues/845#issuecomment-564824018
-RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
 RUN yum install -y yum-utils
 RUN yumdownloader nodejs --disablerepo=AppStream
 RUN mv nodejs*nodesource.x86_64.rpm /opt
@@ -14,11 +14,11 @@ LABEL maintainer="adorsys GmbH & Co. KG" \
       vendor="adorsys GmbH & Co. KG" \
       name="adorsys/node:10" \
       org.label-schema.vendor="adorsys GmbH & Co. KG" \
-      org.label-schema.name="adorsys/node:12" \
-      io.k8s.display-name="adorsys/node:12" \
-      summary="adorsys/node:12" \
-      io.k8s.description="adorsys/node:12" \
-      org.label-schema.description="adorsys/node:12" \
+      org.label-schema.name="adorsys/node:10-ubi-8" \
+      io.k8s.display-name="adorsys/node:10-ubi-8" \
+      summary="adorsys/node:10-ubi-8" \
+      io.k8s.description="adorsys/node:10-ubi-8" \
+      org.label-schema.description="adorsys/node:10-ubi-8" \
       org.label-schema.schema-version="1.0" \
       org.label-schema.usage="" \
       org.label-schema.license="" \
@@ -41,7 +41,7 @@ COPY --from=RPM /opt/*.rpm /tmp/
 WORKDIR /opt/app-root
 
 RUN microdnf update -y && microdnf clean all && rm -rf /var/cache/yum \
-    && echo -e '[nodesource]\nname=nodesource\nbaseurl=https://rpm.nodesource.com/pub_12.x/el/8/$basearch\nenabled=1\ngpgcheck=1\ngpgkey=https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL' > /etc/yum.repos.d/nodesource.repo \
+    && echo -e '[nodesource]\nname=nodesource\nbaseurl=https://rpm.nodesource.com/pub_10.x/el/8/$basearch\nenabled=1\ngpgcheck=1\ngpgkey=https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL' > /etc/yum.repos.d/nodesource.repo \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && microdnf install --nodocs -y openssl \
     && rpm -ivh --nodeps /tmp/*.rpm \

@@ -47,9 +47,9 @@ If you need to run addition logic on container start just copy your shell script
 
 | Name | Description | Size |
 | ---- | ----------- | ---- |
-| `10` | Alias of `10-ubi` | ![](https://images.microbadger.com/badges/image/adorsys/node:10.svg) |
-| `12` | Alias of `12-ubi` | ![](https://images.microbadger.com/badges/image/adorsys/node:12.svg) |
-| `10-centos` | CentOS based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-centos.svg) |
-| `12-centos` | CentOS based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-centos.svg) |
-| `10-ubi` | UBI based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-ubi.svg) |
-| `12-ubi` | UBI based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-ubi.svg) |
+| `10` | Alias of `10-ubi-8` | ![](https://images.microbadger.com/badges/image/adorsys/node:10.svg) |
+| `12` | Alias of `12-ubi-8` | ![](https://images.microbadger.com/badges/image/adorsys/node:12.svg) |
+| `14` | Alias of `14-ubi-8` | ![](https://images.microbadger.com/badges/image/adorsys/node:14.svg) |
+| `10-ubi-8` | UBI based image Node 10 | ![](https://images.microbadger.com/badges/image/adorsys/node:10-ubi.svg) |
+| `12-ubi-8` | UBI based image Node 12 | ![](https://images.microbadger.com/badges/image/adorsys/node:12-ubi.svg) |
+| `14-ubi-8` | UBI based image Node 14 | ![](https://images.microbadger.com/badges/image/adorsys/node:14-ubi.svg) |
