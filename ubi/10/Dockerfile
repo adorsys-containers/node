@@ -40,10 +40,6 @@ COPY --from=RPM /opt/*.rpm /tmp/
 
 WORKDIR /opt/app-root
 
-# Workaround for
-# https://github.com/rpm-software-management/microdnf/issues/50
-RUN mkdir -p /run/user/$(id -u)
-
 RUN microdnf update -y && microdnf clean all && rm -rf /var/cache/yum \
     && echo -e '[nodesource]\nname=nodesource\nbaseurl=https://rpm.nodesource.com/pub_10.x/el/8/$basearch\nenabled=1\ngpgcheck=1\ngpgkey=https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL' > /etc/yum.repos.d/nodesource.repo \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
