@@ -20,27 +20,23 @@ jobs:
       matrix:
         env:
           -
-            DIR: 'centos/10'
+            ALIASES: '10 10-ubi'
+            DIR: 'ubi-8/10'
             DOCKER_IMAGE: 'adorsys/node'
             SQUASH: 'true'
-            TAG: '10-centos'
+            TAG: '10-ubi-8'
           -
-            DIR: 'centos/12'
+            ALIASES: '12 12-ubi'
+            DIR: 'ubi-8/12'
             DOCKER_IMAGE: 'adorsys/node'
             SQUASH: 'true'
-            TAG: '12-centos'
+            TAG: '12-ubi-8'
           -
-            ALIASES: '10'
-            DIR: 'ubi/10'
+            ALIASES: '14 14-ubi'
+            DIR: 'ubi-8/12'
             DOCKER_IMAGE: 'adorsys/node'
             SQUASH: 'true'
-            TAG: '10-ubi'
-          -
-            ALIASES: '12'
-            DIR: 'ubi/12'
-            DOCKER_IMAGE: 'adorsys/node'
-            SQUASH: 'true'
-            TAG: '12-ubi'
+            TAG: '14-ubi-8'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
