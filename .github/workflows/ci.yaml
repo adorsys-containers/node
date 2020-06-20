@@ -33,7 +33,7 @@ jobs:
             TAG: '12-ubi-8'
           -
             ALIASES: '14 14-ubi'
-            DIR: 'ubi-8/12'
+            DIR: 'ubi-8/14'
             DOCKER_IMAGE: 'adorsys/node'
             SQUASH: 'true'
             TAG: '14-ubi-8'
@@ -143,7 +143,7 @@ jobs:
             done;
             (exit $s)
           fi
-      
+
       - name: Slack notification if pipeline failed
         uses: 8398a7/action-slack@v3
         with:

@@ -13,6 +13,6 @@
       SQUASH: 'true'
     - DOCKER_IMAGE: adorsys/node
       TAG: 14-ubi-8
-      DIR: ubi-8/12
+      DIR: ubi-8/14
       ALIASES: '14 14-ubi'
       SQUASH: 'true'
