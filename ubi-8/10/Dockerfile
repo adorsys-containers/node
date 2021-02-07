@@ -40,15 +40,16 @@ COPY --from=RPM /opt/*.rpm /tmp/
 
 WORKDIR /opt/app-root
 
-RUN microdnf update -y && microdnf clean all && rm -rf /var/cache/yum \
+RUN set -euxo pipefail \
+    && microdnf --noplugins update -y && microdnf --noplugins clean all && rm -rf /var/cache/yum \
     && echo -e '[nodesource]\nname=nodesource\nbaseurl=https://rpm.nodesource.com/pub_10.x/el/8/$basearch\nenabled=1\ngpgcheck=1\ngpgkey=https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL' > /etc/yum.repos.d/nodesource.repo \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && microdnf install --nodocs -y openssl \
+    && microdnf --noplugins install --nodocs -y openssl \
     && rpm -ivh --nodeps /tmp/*.rpm \
     && rm /tmp/*.rpm \
-    && microdnf clean all -y \
+    && microdnf --noplugins clean all -y \
     && rm -f nodejs-*nodesource.x86_64.rpm \
-    && npm install -g npm yarn \
+    && npm install -g npm@6 yarn \
     && npm cache clear --force \
     && chmod g=u /etc/passwd \
     && mkdir -p /opt/app-root && chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root
