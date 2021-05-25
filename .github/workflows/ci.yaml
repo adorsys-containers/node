@@ -37,6 +37,12 @@ jobs:
             DOCKER_IMAGE: 'adorsys/node'
             SQUASH: 'true'
             TAG: '14-ubi-8'
+          -
+            ALIASES: '16 16-ubi'
+            DIR: 'ubi-8/16'
+            DOCKER_IMAGE: 'adorsys/node'
+            SQUASH: 'true'
+            TAG: '16-ubi-8'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
