@@ -4,7 +4,7 @@ set -euo pipefail
 
 docker run --rm "${DOCKER_IMAGE}:${TAG}" node --version
 docker run --rm "${DOCKER_IMAGE}:${TAG}" npm --version
-docker run --rm "${DOCKER_IMAGE}:${TAG}" node --version | grep "v14"
+docker run --rm "${DOCKER_IMAGE}:${TAG}" node --version | grep "v16"
 docker run --rm "${DOCKER_IMAGE}:${TAG}" rpm -qa | grep "nodesource"
 
 docker run --rm "${DOCKER_IMAGE}:${TAG}" bash -c 'date | grep -E "CES?T"'
