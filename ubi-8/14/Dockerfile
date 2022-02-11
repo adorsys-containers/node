@@ -1,18 +1,10 @@
-FROM centos:8 AS RPM
-
-# https://github.com/nodesource/distributions/issues/845#issuecomment-564824018
-RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
-RUN yum install -y yum-utils
-RUN yumdownloader nodejs --disablerepo=AppStream
-RUN mv nodejs*nodesource.x86_64.rpm /opt
-
 FROM registry.access.redhat.com/ubi8/ubi:latest AS TZDATA
 
 FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
 LABEL maintainer="adorsys GmbH & Co. KG" \
       vendor="adorsys GmbH & Co. KG" \
-      name="adorsys/node:10" \
+      name="adorsys/node:14" \
       org.label-schema.vendor="adorsys GmbH & Co. KG" \
       org.label-schema.name="adorsys/node:14-ubi-8" \
       io.k8s.display-name="adorsys/node:14-ubi-8" \
@@ -33,23 +25,21 @@ ENV TZ=Europe/Berlin \
     ENABLE_AUTO_NODE_MEMORY_LIMIT=true \
     NODE_MEMORY_LIMIT_PERCENT=80
 
-# https://bugzilla.redhat.com/show_bug.cgi?id=1611117
+# https://bugzilla.redhat.com/show_bug.cgi?id=1411117
 COPY --from=TZDATA /usr/share/zoneinfo/UTC /usr/share/zoneinfo/UTC
 COPY --from=TZDATA /usr/share/zoneinfo/Europe/Berlin /usr/share/zoneinfo/Europe/Berlin
-COPY --from=RPM /opt/*.rpm /tmp/
 
 WORKDIR /opt/app-root
 
 RUN set -euxo pipefail \
+    && microdnf --noplugins module disable nodejs \
     && microdnf --noplugins update -y && microdnf --noplugins clean all && rm -rf /var/cache/yum \
     && echo -e '[nodesource]\nname=nodesource\nbaseurl=https://rpm.nodesource.com/pub_14.x/el/8/$basearch\nenabled=1\ngpgcheck=1\ngpgkey=https://rpm.nodesource.com/pub/el/NODESOURCE-GPG-SIGNING-KEY-EL' > /etc/yum.repos.d/nodesource.repo \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
-    && microdnf --noplugins install --nodocs -y openssl \
-    && rpm -ivh --nodeps /tmp/*.rpm \
-    && rm /tmp/*.rpm \
+    && microdnf --noplugins install --nodocs -y openssl nodejs \
     && microdnf --noplugins clean all -y \
-    && rm -f nodejs-*nodesource.x86_64.rpm \
-    && npm install -g npm@6 yarn \
+    && npm install -g npm \
+    && npm install -g yarn \
     && npm cache clear --force \
     && chmod g=u /etc/passwd \
     && mkdir -p /opt/app-root && chown -R 1001:0 /opt/app-root && chmod -R ug+rwx /opt/app-root

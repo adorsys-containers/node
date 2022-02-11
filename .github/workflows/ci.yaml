@@ -20,12 +20,6 @@ jobs:
       matrix:
         env:
           -
-            ALIASES: '10 10-ubi'
-            DIR: 'ubi-8/10'
-            DOCKER_IMAGE: 'adorsys/node'
-            SQUASH: 'true'
-            TAG: '10-ubi-8'
-          -
             ALIASES: '12 12-ubi'
             DIR: 'ubi-8/12'
             DOCKER_IMAGE: 'adorsys/node'
